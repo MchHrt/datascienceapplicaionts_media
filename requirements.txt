@@ -1,10 +1,10 @@
-textblob
+bs4
 nltk
+textblob
 scipy
 scikit-learn
-spacy
-bs4
-jupyter
-ipython
 matplotlib
 pandas
+jupyter
+streamlit
+ollama
