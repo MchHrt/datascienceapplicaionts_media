@@ -55,3 +55,40 @@ Der Kurs richtet sich an Studierende mit Schwerpunkt auf Medien- und Managementf
 * Öffnet euren Fork mit Github Desktop (oder nutzt `git clone` im Terminal)
 * Erstellt eine virtuelle Umgebung mit VSCode (oder nutzt `python -m virtualenv .venv` im Terminal)
 * Installiert die Bibliotheken in der `requirements.txt`
+
+## Local LLMs
+
+* Ollama-Client installieren ([Websie](https://ollama.com))
+* Modell herunterladen (im Terminal)
+
+```shell
+ollama pull llama3.1:8b
+```
+
+* Modelfile erzeugen (im Text Editor)
+
+```txt
+FROM llama3.1:8b
+PARAMETER temperature 0.7
+PARAMETER num_ctx 5000
+SYSTEM """Du bist Spiderman...."""
+```
+
+* Customized Modell erstellen (im Termin)
+
+```shell
+ollama create spiderman -f Modelfile
+```
+
+* Modell verwenden
+
+```python
+from ollama import generate
+
+response = generate(
+    "llama3.1:8b",
+    "Was ist der Sinn des Lebens"
+)
+
+print(response["response"])
+```
